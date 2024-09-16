@@ -6,10 +6,10 @@ public class main {
         Scanner sc = new Scanner(System.in);
 
         // Modularizamos el código en diferentes métodos
-        ejercicio1();  // Método para el Ejercicio 1
-        // ejercicio2(sc);  // Método para el Ejercicio 2
-        // ejercicio3(sc);  // Método para el Ejercicio 3
-        // ejercicio4(sc);  // Método para el Ejercicio 4
+        // ejercicio1();  // Método para el Ejercicio 1
+        //ejercicio2(sc);  // Método para el Ejercicio 2
+        //ejercicio3(sc);  // Método para el Ejercicio 3
+         ejercicio4(sc);  // Método para el Ejercicio 4
         // ejercicio5(sc);  // Método para el Ejercicio 5
         // ejercicio6(sc);  // Método para el Ejercicio 6
         // ejercicio7(sc);  // Método para el Ejercicio 7
@@ -28,16 +28,67 @@ public class main {
     // Ejercicio 2: Crear un array de tamaño 5 y solicitar valores mediante un bucle
     public static void ejercicio2(Scanner sc) {
         // Espacio para completar el código
+
+         int numeros [] = {5,6,9,10,11};
+
+         for (int i = 0; i < numeros.length; i++) {
+                 System.out.println(numeros[i]);
+         }
+
     }
 
     // Ejercicio 3: Crear un array de tamaño indicado por teclado y llenarlo con múltiplos de un número
     public static void ejercicio3(Scanner sc) {
-        // Espacio para completar el código
+        System.out.println("Por favor, ingresa la dimensión del array:");
+        int arrayLength = sc.nextInt();
+        System.out.println("Por favor, ingresa el número para conocer sus múltiplos:");
+        int multiploNumero = sc.nextInt();
+
+        int[] array1 = new int[arrayLength];
+
+        for (int i = 0; i < arrayLength; i++) {
+            array1[i] = multiploNumero * (i + 1);
+        }
+
+        mostrarArray(array1);
     }
+
+    public static void mostrarArray(int[] array) {
+        for (int i : array) {
+            System.out.println(i);
+
+        }
+    }
+
 
     // Ejercicio 4: Leer 20 números decimales y determinar el mayor, menor y rango
     public static void ejercicio4(Scanner sc) {
         // Espacio para completar el código
+        double decimales [] = new double[20];
+      for (int i = 0; i < decimales.length; i++) {
+          System.out.println("Por favor ingrese el "+ (i+1)+"°" + " decimal" );
+          decimales[i] = sc.nextDouble();
+      }
+        double higherNumber = 0;
+
+      for(int i = 0; i < decimales.length; i++) {
+          if( decimales[i] > higherNumber) {
+              higherNumber = decimales[i];
+          }
+      }
+        double lowerNumber = higherNumber;
+        for(int i = 0; i < decimales.length; i++) {
+            if( decimales[i] < lowerNumber) {
+                lowerNumber = decimales[i];
+            }
+        }
+      System.out.println("El decimal más alto es "+ higherNumber );
+        System.out.println("El decimal más bajo es "+ lowerNumber );
+        System.out.println("El rango es "+ (higherNumber-lowerNumber) );
+
+
+
+
     }
 
     // Ejercicio 5: Almacenar 20 números enteros positivos pares y realizar análisis
