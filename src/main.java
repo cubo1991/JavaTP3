@@ -1,7 +1,14 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class main {
+    public static <T> void print(T content) {
+        System.out.print(content);
+    }
 
+    public static <T> void println(T content) {
+        System.out.println(content);
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -9,7 +16,7 @@ public class main {
         // ejercicio1();  // Método para el Ejercicio 1
         //ejercicio2(sc);  // Método para el Ejercicio 2
         //ejercicio3(sc);  // Método para el Ejercicio 3
-         ejercicio4(sc);  // Método para el Ejercicio 4
+//         ejercicio4(sc);  // Método para el Ejercicio 4
         // ejercicio5(sc);  // Método para el Ejercicio 5
         // ejercicio6(sc);  // Método para el Ejercicio 6
         // ejercicio7(sc);  // Método para el Ejercicio 7
@@ -94,6 +101,38 @@ public class main {
     // Ejercicio 5: Almacenar 20 números enteros positivos pares y realizar análisis
     public static void ejercicio5(Scanner sc) {
         // Espacio para completar el código
+        int [ ] enterosPares = new int [20];
+        Random random = new Random();
+        int suma = 0;
+        int promedio = 0;
+        for (int i = 0; i < enterosPares.length; i++) {
+            enterosPares[i] = random.nextInt(100) + 1;
+            while (enterosPares[i] % 2 != 0) {
+                enterosPares[i] = random.nextInt(100) + 1;
+            }
+            print(enterosPares[i] + " ");
+        }
+        for (int j = 0; j < enterosPares.length; j++ ) {
+            suma += enterosPares[j];
+        }
+        promedio = suma / enterosPares.length;
+        println(" ");
+        println(promedio);
+        int iguales = 0;
+        int mayores = 0;
+        int menores = 0;
+        for (int k = 0; k < enterosPares.length; k++) {
+            if (enterosPares[k] == promedio) {
+                iguales += 1;
+            } else if (enterosPares[k] > promedio) {
+                mayores += 1;
+            } else {
+                menores += 1;
+            }
+        }
+        println("La cantidad de numeros iguales al promedio es: " + iguales);
+        println("La cantidad de numeros mayores al promedio es: " + mayores);
+        println("La cantidad de numeros menores al promedio es: " + menores);
     }
 
     // Ejercicio 6: Búsqueda secuencial en un array de tamaño 50 generado aleatoriamente
@@ -124,6 +163,32 @@ public class main {
     // Ejercicio 11: Sumar elementos del primer y segundo array para crear el tercer array
     public static void ejercicio11(Scanner sc) {
         // Espacio para completar el código
+        int[] enteros1 = new int[5];
+        int[] enteros2 = new int[10];
+        int[] enteros3 = new int[5];
+        for (int i = 0; i < enteros1.length; i++){
+            println("Ingresa un valor de orden " + i + " para agregar al primer array");
+            int nuevoNum = sc.nextInt();
+            enteros1[i] = nuevoNum;
+        }
+        for (int j = 0; j < enteros2.length; j++){
+            println("Ingresa un valor de orden " + j + " para agregar al primer array");
+            int nuevoNum = sc.nextInt();
+            enteros2[j] = nuevoNum;
+        }
+        for (int k = 0; k < enteros3.length; k++){
+            int suma = 0;
+            for (int l = 0; l < enteros2.length; l++) {
+                int producto = 0;
+                producto = enteros1[k] * enteros2[l];
+                suma += producto;
+            }
+            int nuevoNum = suma;
+            enteros3[k] = nuevoNum;
+        }
+        for (int p = 0; p < enteros3.length; p++) {
+            println(enteros3[p]);
+        }
     }
 
     // Ejercicio 12: Eliminar un número ingresado por el usuario de un array de 10 elementos
