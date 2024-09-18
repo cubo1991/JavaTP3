@@ -13,13 +13,13 @@ public class main {
         Scanner sc = new Scanner(System.in);
 
         // Modularizamos el código en diferentes métodos
-        // ejercicio1();  // Método para el Ejercicio 1
-        //ejercicio2(sc);  // Método para el Ejercicio 2
-        //ejercicio3(sc);  // Método para el Ejercicio 3
-//         ejercicio4(sc);  // Método para el Ejercicio 4
-        // ejercicio5(sc);  // Método para el Ejercicio 5
-        // ejercicio6(sc);  // Método para el Ejercicio 6
-        // ejercicio7(sc);  // Método para el Ejercicio 7
+        ejercicio1();  // Método para el Ejercicio 1
+        ejercicio2(sc);  // Método para el Ejercicio 2
+        ejercicio3(sc);  // Método para el Ejercicio 3
+        ejercicio4(sc);  // Método para el Ejercicio 4
+        ejercicio5(sc);  // Método para el Ejercicio 5
+        ejercicio6(sc);  // Método para el Ejercicio 6
+        ejercicio7(sc);  // Método para el Ejercicio 7
         // ejercicio8(sc);  // Método para el Ejercicio 8
         // ejercicio9(sc);  // Método para el Ejercicio 9
         // ejercicio10(sc);  // Método para el Ejercicio 10
@@ -137,13 +137,131 @@ public class main {
 
     // Ejercicio 6: Búsqueda secuencial en un array de tamaño 50 generado aleatoriamente
     public static void ejercicio6(Scanner sc) {
-        // Espacio para completar el código
+
+        //Crear un arreglo de tamaño 50
+          int arreglo[] = new int[50];
+        //creamos la variable azar,para obtener numeros aleatorios
+          Random azar = new Random();
+
+        //bucle for, llenamos el arreglo con numeros aleatorios
+        for (int i = 0; i < arreglo.length ; i++) {
+            arreglo[i]= azar.nextInt(0,100);
+
+        }
+
+        //mostrar el arreglo por consola
+        System.out.println("Arreglo llenado con 50 números al azar: ");
+        for (int i = 0; i < arreglo.length; i++) {
+            System.out.print(arreglo[i] + " ");
+        }
+        System.out.println();//salto en linea
+        BusquedaSecuencial.EncontrarValor(arreglo,sc);
+
+    }
+
+    public class BusquedaSecuencial{
+        static void EncontrarValor(int arreglo[],Scanner sc){
+
+            //Solicitar al usuario que ingrese el valor que desea buscar
+            System.out.println("Ingrese el número que desea buscar: ");
+            int ValorBuscado = sc.nextInt();
+
+            //realizamos la busqueda del valor
+            boolean encontrado = false;
+            for (int i = 0; i < arreglo.length ; i++) {
+                if (arreglo[i] == ValorBuscado){
+                    System.out.println("Valor encontrado en la posición: "+(i+1)+"° del arreglo");
+                    encontrado = true;
+                    break; //finaliza la busqueda y cortamos el bucle
+                }
+            }
+
+            //Si no se encuentra el Valor buscado
+            if (!encontrado){
+                System.out.println("El número "+ValorBuscado+" no se encontró en el arreglo");
+            }
+        }
     }
 
     // Ejercicio 7: Suma de números pares e impares por separado
     public static void ejercicio7(Scanner sc) {
-        // Espacio para completar el código
+
+        //bucle for, pedimos al usuario que ingrese 20 numeros enteros y almacenalos en un array
+
+        int arrreglo[];
+        arrreglo = new int[20];//20
+
+        //creamos un bucle for para almacenar los valores ingresados por el usuario
+        for (int i = 0; i < arrreglo.length ; i++) {
+
+            System.out.println("Hay que ingresar un total de 20 números");
+            System.out.println("Ingrese el "+(i+1)+"° número");
+            arrreglo[i]= sc.nextInt();
+        }
+        //mostramos por consola los valores guardados en el arreglo
+        System.out.println("Los números ingresados fueron:");
+        for (int i = 0; i < arrreglo.length; i++){
+            System.out.println(arrreglo[i]);
+        }
+
+        //llamamos las funciones
+        SumaNumerosPares.CalcularSumaPares(arrreglo);
+        SumaNumerosImpar.CalcularSumaImpar(arrreglo);
+
     }
+
+    public class SumaNumerosPares{
+        static void CalcularSumaPares(int arreglo[]){
+
+            //iniciamos la variable SumaPar
+            int SumaPar=0;
+
+            //creamos un bucle for guardar los valores pares en la variable SumaPar
+            for (int i = 0; i < arreglo.length ; i++) {
+
+                //utilizamos un if y mod para verificar si es par
+                if (arreglo[i]%2==0){
+
+                    //mostramos por consola
+                    //System.out.println("El numero "+arreglo[i]+" es numero par");
+
+                    //guardamos el valor en la variable SumaPar
+                    SumaPar += arreglo[i];
+                }
+
+            }
+            //mostramos por consola la variable SumaPar
+            System.out.println("La suma de los numeros pares da un total de: "+ SumaPar);
+        }
+    }
+
+    public class SumaNumerosImpar {
+        static void CalcularSumaImpar(int arreglo[]){
+            //Iniciamos la variable SumaImpar
+            int SumaImpar = 0;
+
+            //creamos un bucle for guardar los valores pares en la variable SumaImpar
+            for (int i = 0; i < arreglo.length ; i++) {
+
+                //utilizamos un if y mod para verificar si es impar
+                if (arreglo[i]%2!=0){
+                    //mostramos por consola
+                    //System.out.println("El numero "+arreglo[i]+" es numero impar");
+
+                    //guardamos el valor en la variable SumaImpar
+                    SumaImpar += arreglo[i];
+                }
+
+            }
+            //mostramos por consola la variable SumaImpar
+            System.out.println("La suma de los numeros impares da un total de: "+ SumaImpar);
+
+        }
+    }
+
+
+
+
 
     // Ejercicio 8: Crear dos arrays con números ascendentes y descendentes
     public static void ejercicio8(Scanner sc) {
