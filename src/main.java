@@ -275,7 +275,27 @@ public class main {
 
     // Ejercicio 10: Calcular la letra del DNI
     public static void ejercicio10(Scanner sc) {
-        // Espacio para completar el código
+        class DNI {
+
+            public static char obtenerLetra(int numeroDNI) {
+                // creo el char con las letras del TP
+                char[] letras = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
+                // aca divido por lo que me dice el ejercicio y regreso la letra segun el resultado que me de
+                int resto = numeroDNI % 23;
+                return letras[resto];
+            }
+            public static void main(String[] args) {
+                Scanner scanner = new Scanner(System.in);
+                // pido el DNI
+                System.out.print("Introduce tu número de DNI sin la letra: ");
+                int numeroDNI = scanner.nextInt();
+                // aca uso la funcion que hice arriba para obtener la letra
+                char letraDNI = obtenerLetra(numeroDNI);
+                // resultado
+                System.out.println("El DNI completo es: " + numeroDNI + letraDNI);
+                scanner.close();
+            }
+        }
     }
 
     // Ejercicio 11: Sumar elementos del primer y segundo array para crear el tercer array
@@ -312,5 +332,50 @@ public class main {
     // Ejercicio 12: Eliminar un número ingresado por el usuario de un array de 10 elementos
     public static void ejercicio12(Scanner sc) {
         // Espacio para completar el código
+
+        class EliminarArrays {
+
+            public static void main(String[] args) {
+                Scanner scanner = new Scanner(System.in);
+                int[] numeros = new int[10];
+                // ingreso los 10 numeros
+                System.out.println("Introduce 10 números enteros:");
+                for (int i = 0; i < numeros.length; i++) {
+                    numeros[i] = scanner.nextInt();
+                }
+                // muestro mis 10 numeros
+                System.out.print("El array ingresado es: ");
+                for (int numero : numeros) {
+                    System.out.print(numero + " ");
+                }
+                System.out.println();
+                // aca pongo el numeor que quiero eliminar
+                System.out.print("Introduce el número que quieres eliminar: ");
+                int numeroAEliminar = scanner.nextInt();
+                // aca van todos los numeros menos el que voy a eliminar
+                int count = 0;
+                for (int numero : numeros) {
+                    if (numero != numeroAEliminar) {
+                        count++;
+                    }
+                }
+                // ahora si creo el array sacando el numero que puse para eliminar
+                int[] nuevoArray = new int[count];
+                int numerosParaNoEliminar = 0;
+                // copiar los elementos que no son iguales al número a eliminar
+                for (int numero : numeros) {
+                    if (numero != numeroAEliminar) {
+                        nuevoArray[numerosParaNoEliminar++] = numero;
+                    }
+                }
+                // muestro el nuevo array
+                System.out.print("El nuevo array sin el número " + numeroAEliminar + " es: ");
+                for (int numero : nuevoArray) {
+                    System.out.print(numero + " ");
+                }
+
+                scanner.close();
+            }
+        }
     }
 }
