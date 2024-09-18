@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -265,12 +266,55 @@ public class main {
 
     // Ejercicio 8: Crear dos arrays con números ascendentes y descendentes
     public static void ejercicio8(Scanner sc) {
-        // Espacio para completar el código
+        Scanner scaner = new Scanner(System.in);
+        int[] numeros = new int[10];
+        for (int i = 0; i < 10; i++) {
+            System.out.println(" Ingrese 10 numeros :" + (i + 1));
+            numeros[i] = scaner.nextInt();
+        }
+        int[] numAcendentes = Arrays.copyOf(numeros, numeros.length);
+        int[] numDesendentes = Arrays.copyOf(numeros, numeros.length);
+
+        Arrays.sort(numAcendentes);
+        System.out.println(" Numeros ingresados en forma acendentes");
+        for (int num2 : numAcendentes) {
+            System.out.print(num2 + " ");
+        }
+
+        for (int i = 0; i < 10; i++) {
+            numDesendentes[i] = numAcendentes[10 - 1 - i];
+
+        }
+        System.out.println();
+
+        System.out.println(" Numeros ingresados en forma desendentes ");
+        for (int num3 : numDesendentes) {
+            System.out.print(num3 + " ");
+        }
+
     }
 
     // Ejercicio 9: Solicitar al usuario una cadena de números separados por guiones y calcular suma y promedio
     public static void ejercicio9(Scanner sc) {
-        // Espacio para completar el código
+        Scanner scaner2 = new Scanner(System.in);
+        System.out.println("Ingrese una cadena separada con guiones (-) ");
+        String cAdenaguion= scaner2.nextLine();
+
+        String [] numerosstring= cAdenaguion.split("-");
+        int sumas= 0;
+        int cantidad = numerosstring.length;
+
+        for ( String num4: numerosstring) {
+            int numerOs4 = Integer.parseInt(num4);
+            sumas += numerOs4;
+
+        }
+        double promedio= sumas/cantidad;
+        System.out.println(" La summa total de los elementos es : " + sumas);
+        System.out.println();
+        System.out.println("El promedio total de los elementos es :" + promedio);
+
+
     }
 
     // Ejercicio 10: Calcular la letra del DNI
