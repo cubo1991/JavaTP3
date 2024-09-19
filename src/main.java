@@ -10,6 +10,7 @@ public class main {
     public static <T> void println(T content) {
         System.out.println(content);
     }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -21,11 +22,11 @@ public class main {
         ejercicio5(sc);  // Método para el Ejercicio 5
         ejercicio6(sc);  // Método para el Ejercicio 6
         ejercicio7(sc);  // Método para el Ejercicio 7
-        // ejercicio8(sc);  // Método para el Ejercicio 8
-        // ejercicio9(sc);  // Método para el Ejercicio 9
-        // ejercicio10(sc);  // Método para el Ejercicio 10
-        // ejercicio11(sc);  // Método para el Ejercicio 11
-        // ejercicio12(sc);  // Método para el Ejercicio 12
+        ejercicio8(sc);  // Método para el Ejercicio 8
+        ejercicio9(sc);  // Método para el Ejercicio 9
+        ejercicio10(sc);  // Método para el Ejercicio 10
+        ejercicio11(sc);  // Método para el Ejercicio 11
+        ejercicio12(sc);  // Método para el Ejercicio 12
     }
 
     // Ejercicio 1: Explicación teórica
@@ -37,11 +38,11 @@ public class main {
     public static void ejercicio2(Scanner sc) {
         // Espacio para completar el código
 
-         int numeros [] = {5,6,9,10,11};
+        int numeros[] = {5, 6, 9, 10, 11};
 
-         for (int i = 0; i < numeros.length; i++) {
-                 System.out.println(numeros[i]);
-         }
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.println(numeros[i]);
+        }
 
     }
 
@@ -72,29 +73,27 @@ public class main {
     // Ejercicio 4: Leer 20 números decimales y determinar el mayor, menor y rango
     public static void ejercicio4(Scanner sc) {
         // Espacio para completar el código
-        double decimales [] = new double[20];
-      for (int i = 0; i < decimales.length; i++) {
-          System.out.println("Por favor ingrese el "+ (i+1)+"°" + " decimal" );
-          decimales[i] = sc.nextDouble();
-      }
+        double decimales[] = new double[20];
+        for (int i = 0; i < decimales.length; i++) {
+            System.out.println("Por favor ingrese el " + (i + 1) + "°" + " decimal");
+            decimales[i] = sc.nextDouble();
+        }
         double higherNumber = 0;
 
-      for(int i = 0; i < decimales.length; i++) {
-          if( decimales[i] > higherNumber) {
-              higherNumber = decimales[i];
-          }
-      }
+        for (int i = 0; i < decimales.length; i++) {
+            if (decimales[i] > higherNumber) {
+                higherNumber = decimales[i];
+            }
+        }
         double lowerNumber = higherNumber;
-        for(int i = 0; i < decimales.length; i++) {
-            if( decimales[i] < lowerNumber) {
+        for (int i = 0; i < decimales.length; i++) {
+            if (decimales[i] < lowerNumber) {
                 lowerNumber = decimales[i];
             }
         }
-      System.out.println("El decimal más alto es "+ higherNumber );
-        System.out.println("El decimal más bajo es "+ lowerNumber );
-        System.out.println("El rango es "+ (higherNumber-lowerNumber) );
-
-
+        System.out.println("El decimal más alto es " + higherNumber);
+        System.out.println("El decimal más bajo es " + lowerNumber);
+        System.out.println("El rango es " + (higherNumber - lowerNumber));
 
 
     }
@@ -102,7 +101,7 @@ public class main {
     // Ejercicio 5: Almacenar 20 números enteros positivos pares y realizar análisis
     public static void ejercicio5(Scanner sc) {
         // Espacio para completar el código
-        int [ ] enterosPares = new int [20];
+        int[] enterosPares = new int[20];
         Random random = new Random();
         int suma = 0;
         int promedio = 0;
@@ -113,7 +112,7 @@ public class main {
             }
             print(enterosPares[i] + " ");
         }
-        for (int j = 0; j < enterosPares.length; j++ ) {
+        for (int j = 0; j < enterosPares.length; j++) {
             suma += enterosPares[j];
         }
         promedio = suma / enterosPares.length;
@@ -140,13 +139,13 @@ public class main {
     public static void ejercicio6(Scanner sc) {
 
         //Crear un arreglo de tamaño 50
-          int arreglo[] = new int[50];
+        int arreglo[] = new int[50];
         //creamos la variable azar,para obtener numeros aleatorios
-          Random azar = new Random();
+        Random azar = new Random();
 
         //bucle for, llenamos el arreglo con numeros aleatorios
-        for (int i = 0; i < arreglo.length ; i++) {
-            arreglo[i]= azar.nextInt(0,100);
+        for (int i = 0; i < arreglo.length; i++) {
+            arreglo[i] = azar.nextInt(0, 100);
 
         }
 
@@ -156,12 +155,12 @@ public class main {
             System.out.print(arreglo[i] + " ");
         }
         System.out.println();//salto en linea
-        BusquedaSecuencial.EncontrarValor(arreglo,sc);
+        BusquedaSecuencial.EncontrarValor(arreglo, sc);
 
     }
 
-    public class BusquedaSecuencial{
-        static void EncontrarValor(int arreglo[],Scanner sc){
+    public class BusquedaSecuencial {
+        static void EncontrarValor(int arreglo[], Scanner sc) {
 
             //Solicitar al usuario que ingrese el valor que desea buscar
             System.out.println("Ingrese el número que desea buscar: ");
@@ -169,17 +168,17 @@ public class main {
 
             //realizamos la busqueda del valor
             boolean encontrado = false;
-            for (int i = 0; i < arreglo.length ; i++) {
-                if (arreglo[i] == ValorBuscado){
-                    System.out.println("Valor encontrado en la posición: "+(i+1)+"° del arreglo");
+            for (int i = 0; i < arreglo.length; i++) {
+                if (arreglo[i] == ValorBuscado) {
+                    System.out.println("Valor encontrado en la posición: " + (i + 1) + "° del arreglo");
                     encontrado = true;
                     break; //finaliza la busqueda y cortamos el bucle
                 }
             }
 
             //Si no se encuentra el Valor buscado
-            if (!encontrado){
-                System.out.println("El número "+ValorBuscado+" no se encontró en el arreglo");
+            if (!encontrado) {
+                System.out.println("El número " + ValorBuscado + " no se encontró en el arreglo");
             }
         }
     }
@@ -193,15 +192,15 @@ public class main {
         arrreglo = new int[20];//20
 
         //creamos un bucle for para almacenar los valores ingresados por el usuario
-        for (int i = 0; i < arrreglo.length ; i++) {
+        for (int i = 0; i < arrreglo.length; i++) {
 
             System.out.println("Hay que ingresar un total de 20 números");
-            System.out.println("Ingrese el "+(i+1)+"° número");
-            arrreglo[i]= sc.nextInt();
+            System.out.println("Ingrese el " + (i + 1) + "° número");
+            arrreglo[i] = sc.nextInt();
         }
         //mostramos por consola los valores guardados en el arreglo
         System.out.println("Los números ingresados fueron:");
-        for (int i = 0; i < arrreglo.length; i++){
+        for (int i = 0; i < arrreglo.length; i++) {
             System.out.println(arrreglo[i]);
         }
 
@@ -211,17 +210,17 @@ public class main {
 
     }
 
-    public class SumaNumerosPares{
-        static void CalcularSumaPares(int arreglo[]){
+    public class SumaNumerosPares {
+        static void CalcularSumaPares(int arreglo[]) {
 
             //iniciamos la variable SumaPar
-            int SumaPar=0;
+            int SumaPar = 0;
 
             //creamos un bucle for guardar los valores pares en la variable SumaPar
-            for (int i = 0; i < arreglo.length ; i++) {
+            for (int i = 0; i < arreglo.length; i++) {
 
                 //utilizamos un if y mod para verificar si es par
-                if (arreglo[i]%2==0){
+                if (arreglo[i] % 2 == 0) {
 
                     //mostramos por consola
                     //System.out.println("El numero "+arreglo[i]+" es numero par");
@@ -232,20 +231,20 @@ public class main {
 
             }
             //mostramos por consola la variable SumaPar
-            System.out.println("La suma de los numeros pares da un total de: "+ SumaPar);
+            System.out.println("La suma de los numeros pares da un total de: " + SumaPar);
         }
     }
 
     public class SumaNumerosImpar {
-        static void CalcularSumaImpar(int arreglo[]){
+        static void CalcularSumaImpar(int arreglo[]) {
             //Iniciamos la variable SumaImpar
             int SumaImpar = 0;
 
             //creamos un bucle for guardar los valores pares en la variable SumaImpar
-            for (int i = 0; i < arreglo.length ; i++) {
+            for (int i = 0; i < arreglo.length; i++) {
 
                 //utilizamos un if y mod para verificar si es impar
-                if (arreglo[i]%2!=0){
+                if (arreglo[i] % 2 != 0) {
                     //mostramos por consola
                     //System.out.println("El numero "+arreglo[i]+" es numero impar");
 
@@ -255,13 +254,10 @@ public class main {
 
             }
             //mostramos por consola la variable SumaImpar
-            System.out.println("La suma de los numeros impares da un total de: "+ SumaImpar);
+            System.out.println("La suma de los numeros impares da un total de: " + SumaImpar);
 
         }
     }
-
-
-
 
 
     // Ejercicio 8: Crear dos arrays con números ascendentes y descendentes
@@ -297,19 +293,19 @@ public class main {
     // Ejercicio 9: Solicitar al usuario una cadena de números separados por guiones y calcular suma y promedio
     public static void ejercicio9(Scanner sc) {
         Scanner scaner2 = new Scanner(System.in);
-        System.out.println("Ingrese una cadena separada con guiones (-) ");
-        String cAdenaguion= scaner2.nextLine();
+        System.out.println("Ingrese una cadena de numeros separada con guiones (-) ");
+        String cAdenaguion = scaner2.nextLine();
 
-        String [] numerosstring= cAdenaguion.split("-");
-        int sumas= 0;
+        String[] numerosstring = cAdenaguion.split("-");
+        int sumas = 0;
         int cantidad = numerosstring.length;
 
-        for ( String num4: numerosstring) {
+        for (String num4 : numerosstring) {
             int numerOs4 = Integer.parseInt(num4);
             sumas += numerOs4;
 
         }
-        double promedio= sumas/cantidad;
+        double promedio = sumas / cantidad;
         System.out.println(" La summa total de los elementos es : " + sumas);
         System.out.println();
         System.out.println("El promedio total de los elementos es :" + promedio);
@@ -320,7 +316,6 @@ public class main {
     // Ejercicio 10: Calcular la letra del DNI
     public static void ejercicio10(Scanner sc) {
         class DNI {
-
             public static char obtenerLetra(int numeroDNI) {
                 // creo el char con las letras del TP
                 char[] letras = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
@@ -328,18 +323,19 @@ public class main {
                 int resto = numeroDNI % 23;
                 return letras[resto];
             }
-            public static void main(String[] args) {
-                Scanner scanner = new Scanner(System.in);
-                // pido el DNI
-                System.out.print("Introduce tu número de DNI sin la letra: ");
-                int numeroDNI = scanner.nextInt();
-                // aca uso la funcion que hice arriba para obtener la letra
-                char letraDNI = obtenerLetra(numeroDNI);
-                // resultado
-                System.out.println("El DNI completo es: " + numeroDNI + letraDNI);
-                scanner.close();
-            }
         }
+
+
+        // pido el DNI
+        System.out.print("Introduce tu número de DNI sin la letra: ");
+        int numeroDNI = sc.nextInt();
+        // aca uso la funcion que hice arriba para obtener la letra
+        char letraDNI = DNI.obtenerLetra(numeroDNI);
+        // resultado
+        System.out.println("El DNI completo es: " + numeroDNI + letraDNI);
+
+
+
     }
 
     // Ejercicio 11: Sumar elementos del primer y segundo array para crear el tercer array
@@ -348,17 +344,17 @@ public class main {
         int[] enteros1 = new int[5];
         int[] enteros2 = new int[10];
         int[] enteros3 = new int[5];
-        for (int i = 0; i < enteros1.length; i++){
+        for (int i = 0; i < enteros1.length; i++) {
             println("Ingresa un valor de orden " + i + " para agregar al primer array");
             int nuevoNum = sc.nextInt();
             enteros1[i] = nuevoNum;
         }
-        for (int j = 0; j < enteros2.length; j++){
-            println("Ingresa un valor de orden " + j + " para agregar al primer array");
+        for (int j = 0; j < enteros2.length; j++) {
+            println("Ingresa un valor de orden " + j + " para agregar al segundo array");
             int nuevoNum = sc.nextInt();
             enteros2[j] = nuevoNum;
         }
-        for (int k = 0; k < enteros3.length; k++){
+        for (int k = 0; k < enteros3.length; k++) {
             int suma = 0;
             for (int l = 0; l < enteros2.length; l++) {
                 int producto = 0;
@@ -377,49 +373,44 @@ public class main {
     public static void ejercicio12(Scanner sc) {
         // Espacio para completar el código
 
-        class EliminarArrays {
 
-            public static void main(String[] args) {
-                Scanner scanner = new Scanner(System.in);
-                int[] numeros = new int[10];
-                // ingreso los 10 numeros
-                System.out.println("Introduce 10 números enteros:");
-                for (int i = 0; i < numeros.length; i++) {
-                    numeros[i] = scanner.nextInt();
-                }
-                // muestro mis 10 numeros
-                System.out.print("El array ingresado es: ");
-                for (int numero : numeros) {
-                    System.out.print(numero + " ");
-                }
-                System.out.println();
-                // aca pongo el numeor que quiero eliminar
-                System.out.print("Introduce el número que quieres eliminar: ");
-                int numeroAEliminar = scanner.nextInt();
-                // aca van todos los numeros menos el que voy a eliminar
-                int count = 0;
-                for (int numero : numeros) {
-                    if (numero != numeroAEliminar) {
-                        count++;
-                    }
-                }
-                // ahora si creo el array sacando el numero que puse para eliminar
-                int[] nuevoArray = new int[count];
-                int numerosParaNoEliminar = 0;
-                // copiar los elementos que no son iguales al número a eliminar
-                for (int numero : numeros) {
-                    if (numero != numeroAEliminar) {
-                        nuevoArray[numerosParaNoEliminar++] = numero;
-                    }
-                }
-                // muestro el nuevo array
-                System.out.print("El nuevo array sin el número " + numeroAEliminar + " es: ");
-                for (int numero : nuevoArray) {
-                    System.out.print(numero + " ");
-                }
-
-                scanner.close();
+        int[] numeros = new int[10];
+        // ingreso los 10 numeros
+        System.out.println("Introduce 10 números enteros:");
+        for (int i = 0; i < numeros.length; i++) {
+            numeros[i] = sc.nextInt();
+        }
+        // muestro mis 10 numeros
+        System.out.print("El array ingresado es: ");
+        for (int numero : numeros) {
+            System.out.print(numero + " ");
+        }
+        System.out.println();
+        // aca pongo el numeor que quiero eliminar
+        System.out.print("Introduce el número que quieres eliminar: ");
+        int numeroAEliminar = sc.nextInt();
+        // aca van todos los numeros menos el que voy a eliminar
+        int count = 0;
+        for (int numero : numeros) {
+            if (numero != numeroAEliminar) {
+                count++;
             }
         }
+        // ahora si creo el array sacando el numero que puse para eliminar
+        int[] nuevoArray = new int[count];
+        int numerosParaNoEliminar = 0;
+        // copiar los elementos que no son iguales al número a eliminar
+        for (int numero : numeros) {
+            if (numero != numeroAEliminar) {
+                nuevoArray[numerosParaNoEliminar++] = numero;
+            }
+        }
+        // muestro el nuevo array
+        System.out.print("El nuevo array sin el número " + numeroAEliminar + " es: ");
+        for (int numero : nuevoArray) {
+            System.out.print(numero + " ");
+        }
+
+
     }
 }
